@@ -1,0 +1,30 @@
+# Change 'comments' to true for Disqus comments
+disqus:
+  comments: false
+  disqus_shortname: ''
+
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
+google-ID: ''
+
+menu:
+- {name: 'О блоге', url: 'about.html', short_url: 'about'}
+- {name: 'Архив', url: 'archive.html', short_url: 'archive'}
+- {name: 'Контакты', url: 'contacts.html', short_url: 'contacts'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
+social:
+- {icon: 'github', link: 'https://www.github.com/retro3f'}
+- {icon: 'envelope', link: 'mailto:retro3f@gmail.com'}
+- {icon: 'rss-square', link: '/feed.xml'}
+# - {icon: 'rss-square', link: '/rss-feed.xml'}
+
+# Customize site text
+pagination:
+  next_page: 'Раньше'
+  previous_page: 'Позже'
+
+sharing_button_prompt: 'Не стесняйтесь делиться!'
+
+related_posts: 'Вам также может понравиться:'
+
+post_date_prefix: 'Дата публикации'

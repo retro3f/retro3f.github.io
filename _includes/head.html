@@ -1,0 +1,105 @@
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	{% if page.title == "Home" %}
+	<title>{{ site.title }} | {{ site.description }} </title>
+	{% else %}
+	<title>{{ page.title }} | {{ site.title }}</title>
+	{% endif %}
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+	 
+	
+	{% if page.id %}
+	<meta name="description" content="{{ page.content | strip_html | truncatewords: 15 }}">
+	{% else %}
+	<meta name="description" content="{{ page.title }} - {{site.title}} | {{site.description}}">
+	{% endif %}
+	
+	<meta name="author" content="{{ site.author }}">
+
+	<meta name="robots" content="index" />
+	<link rel="canonical" href="{{ site.url }}" />
+
+	<meta name="yandex-verification" content="861d643a5e77a8a9" />
+  
+	{%if page.title == "Home" %}
+	<meta property="og:title" content="{{site.title}} | {{site.description}}">
+	{% else %}
+	<meta property="og:title" content="{{page.title}} | {{site.title}}">
+	{% endif %}
+
+	{% if page.image %}
+	<meta property="og:image" content="{{ site.url }}/assets/img/{{ page.image.feature }}">
+	{% else %}
+	<meta property="og:image" content="{{ site.url }}/assets/img/header.jpg">
+	{% endif %}
+
+	{% if page.url %}
+	<meta content="{{ site.url }}{{ page.url }}" property="og:url">
+	{% else %}
+	<meta content="{{ site.url }}" property="og:url">
+	{% endif %}
+	
+	<meta property="og:site_name" content="{{site.title}} | {{site.description}}"/>
+		
+	{%if page.title == "Home" %}
+	<meta property="og:type" content="website">
+	{% else %}
+	<meta property="og:type" content="article">
+	{% endif %}
+	<meta property="og:locale" content="ru_RU">
+
+	{%if page.id %}
+	<meta property="og:description" content="{{ page.content | strip_html | truncatewords: 15 }}">
+	{% else %}
+	<meta property="og:description" content="{{ page.title }} - {{site.title}} | {{site.description}}">
+	{% endif %}
+	 
+	{% if page.date %}
+	<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+	<meta property="article:author" content="{{ site.url }}/about/">
+	{% endif %}
+ 
+	{% if page.categories %}
+	{% for category in page.categories limit:1 %}
+	<meta property="article:section" content="{{ category }}">
+	{% endfor %}
+	{% endif %}
+	
+	{% if page.tags %}
+	{% for tag in page.tags %}
+	<meta property="article:tag" content="{{ tag }}">
+	{% endfor %}
+	{% endif %}
+ 
+	<link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
+	<link rel="stylesheet" href="{{ site.github.url }}/assets/css/syntax.css">
+  <!-- Use Atom -->
+  {% feed_meta %}
+  <!-- Use RSS-2.0 -->
+  <!--<link href="{{ site.github.url }}/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
+  //-->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      });
+  </script>
+
+  <!-- Google Analytics -->
+  <!-- {% include google-analytics.html %} -->
+  
+  <!-- Yandex metrika -->
+  {% include yandex-metrika.html %}	
+
+</head>
