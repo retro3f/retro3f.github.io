@@ -20,7 +20,6 @@ image:
 
 ```
 ├── Assets
-│   └── list
 ├── Editor
 ├── Fonts
 ├── Materials
